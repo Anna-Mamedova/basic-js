@@ -17,11 +17,13 @@ function transform(arr) {
   let newArr = []
 
   if(!Array.isArray(arr)) {
-    throw Error('"arr" parameter must be an instance of the Array!')
+    throw Error("'arr' parameter must be an instance of the Array!")
   }
   for(let i = 0; i < arr.length; i++){
     if(arr[i] === '--double-next'){
-      i = i - 1
+      if (arr[i + 1]) {
+        newArr.push(arr[i + 1]);
+      }
       continue
     }
     if(arr[i] === '--discard-prev'){
@@ -29,16 +31,18 @@ function transform(arr) {
       continue
     }
     if(arr[i] === '--discard-next'){
-      i = i + 1
-        continue
+      i = i + 2;
+      continue
     }
     if(arr[i] === '--double-prev'){
-      newArr.push(arr[i - 1])
-        continue
+      if (newArr[newArr.length - 1]) {
+        newArr.push(arr[i - 1])
+      }
+      continue
     }
     newArr.push(arr[i])
   }
-  return newArr.flat(1)
+  return newArr
 }
 
 module.exports = {

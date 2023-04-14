@@ -4,7 +4,7 @@ const { getMatrixElementsSum } = require('../src/matrix-elements-sum.js');
 
 it.optional = testOptional;
 
-Object.freeze(assert);
+Object.freeze(assert); 
 
 describe('Matrix elements sum', () => {
   it.optional('should return the sum of the matrix elements that are not below 0', () => {

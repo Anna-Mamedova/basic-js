@@ -4,7 +4,7 @@ const { renameFiles } = require('../src/file-names.js');
 
 it.optional = testOptional;
 
-Object.freeze(assert);
+Object.freeze(assert); 
 
 describe('File names', () => {
   it.optional('should return an array of names that will be given to the files', () => {

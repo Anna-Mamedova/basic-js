@@ -17,12 +17,12 @@ function getSeason(date) {
   }
 
   try {
-    const d = date.valueOf()
+    date.valueOf()
   } catch (error) {
     throw Error('Invalid date!')
   }
 
-  if (Number.isNaN(date) || typeof date === 'number' || !(date instanceof Date)) {
+  if (!(date instanceof Date)) {
     throw Error('Invalid date!')
   }
   
